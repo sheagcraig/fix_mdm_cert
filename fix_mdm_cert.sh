@@ -12,5 +12,8 @@ if jamf removeMDMProfile && jamf manage; then
 	jamf recon
 fi
 # Clean up
+# I have this cleaning up every time, because if it should fail, Jamf is
+# going to reinstall the package anyway, so there's probably no sense in
+# running this over and over again.
 launchctl unload -w $LAUNCHD
 rm $LAUNCHD
